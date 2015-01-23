@@ -981,6 +981,9 @@ var Twig = (function (Twig) {
 	};
 
 	Twig.Template.prototype.importMacros = function(file) {
+		if(this.options.allowInlineIncludes){
+			return this.importFile( file );
+		}
 		var url = relativePath(this, file);
 
 		// load remote template
@@ -1443,8 +1446,8 @@ var Twig = (function(Twig) {
 	Twig.lib.parseISO8601Date = function (s){
 		// Taken from http://n8v.enteuxis.org/2010/12/parsing-iso-8601-dates-in-javascript/
 		// parenthese matches:
-		// year month day    hours minutes seconds  
-		// dotmilliseconds 
+		// year month day    hours minutes seconds
+		// dotmilliseconds
 		// tzstring plusminus hours minutes
 		var re = /(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d):(\d\d)(\.\d+)?(Z|([+-])(\d\d):(\d\d))/;
 
@@ -1455,7 +1458,7 @@ var Twig = (function(Twig) {
 		//  ["2010-12-07T11:00:00.000-09:00", "2010", "12", "07", "11",
 		//     "00", "00", ".000", "-09:00", "-", "09", "00"]
 		// "2010-12-07T11:00:00.000Z" parses to:
-		//  ["2010-12-07T11:00:00.000Z",      "2010", "12", "07", "11", 
+		//  ["2010-12-07T11:00:00.000Z",      "2010", "12", "07", "11",
 		//     "00", "00", ".000", "Z", undefined, undefined, undefined]
 
 		if (! d) {
@@ -2758,6 +2761,7 @@ var Twig = (function (Twig) {
 					regex_array.push(token_regex);
 				}
 
+
 				// Check regular expressions in the order they were specified in the definition.
 				while (regex_array.length > 0) {
 					regex = regex_array.shift();
@@ -3987,7 +3991,7 @@ var Twig = (function (Twig) {
 				b = stack.pop();
 				a = stack.pop();
 				stack.push( (a !== undefined ? a.toString() : "")
-				+ (b !== undefined ? b.toString() : "") );
+				+ (b !== undefined && b !== null ? b.toString() : "") );
 				break;
 
 			case 'not':
@@ -4217,7 +4221,7 @@ var Twig = (function (Twig) {
 			}
 			if (value instanceof Array) {
 				output = value;
-			} else {
+			} else if( value instanceof Object ) {
 				keyset = value._keys || Object.keys(value);
 				Twig.forEach(keyset, function(key) {
 					if (key === "_keys") return; // Ignore the _keys property
@@ -4899,6 +4903,9 @@ var Twig = (function (Twig) {
 		},
 		sameas: function(value, params) {
 			return value === params[0];
+		},
+		iterable: function(value){
+			return value instanceof Object || value instanceof Array;
 		}
 		/*
 		 constant ?
