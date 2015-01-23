@@ -1,0 +1,17 @@
+{% if crumb %}
+	<div class="b-footer">
+		<div class="wrap">
+
+			<a class="b-footer__item b-footer__item_home i-icon i-icon_home" href="{{ admin_url }}"></a>
+
+			{% for item in crumb %}
+				<i class="i-icon i-icon_angle-right"></i>
+
+				<a class="b-footer__item" href="{{ item.link }}">
+					{{ item.name }}
+				</a>
+			{% endfor %}
+
+		</div>
+	</div>
+{% endif %}

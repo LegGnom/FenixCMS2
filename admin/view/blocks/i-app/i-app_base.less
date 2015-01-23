@@ -1,0 +1,30 @@
+@import "i-app_font";
+@import "i-app_mixin";
+
+body{
+	font-size: 13px;
+	.font-base;
+	color: #333;
+}
+
+.wrap{
+	padding-left: 15px;
+	padding-right: 15px;
+
+	&.wrap_content{
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}
+
+.column{
+	.clear;
+}
+
+.column__left{
+	float: left;
+	width: 20%;
+}
+.column__right{
+	margin-left: calc(~'20% + 15px');
+}

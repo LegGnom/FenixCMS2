@@ -1,0 +1,14 @@
+{% extends 'blocks/b-layout/b-layout_wrap.twig' %}
+
+{% block content %}
+
+	<div class="column">
+		<div class="column__left">
+			{% block column_left %}{% endblock %}
+		</div>
+		<div class="column__right">
+			{% block column_right %}{% endblock %}
+		</div>
+	</div>
+
+{% endblock %}

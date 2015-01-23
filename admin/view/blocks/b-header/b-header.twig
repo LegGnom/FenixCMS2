@@ -1,0 +1,31 @@
+{% from 'blocks/b-dropdown-menu/b-dropdown-menu.twig' import bDropdownMenu %}
+
+<div class="b-header">
+	<div class="wrap">
+
+		<a class="b-header__logo" href="{{ admin_url }}">FenixCMS</a>
+
+		<div class="b-header__menu">
+			{% for item in header_menu %}
+				{% set item_class = 'b-header__menu-item' %}
+				{% set class = [item_class] %}
+				{% set link = admin_url ~ item.link ~ '/' %}
+
+				{% if self_url == link %}
+					{% set class = class|merge([ item_class ~ '_active' ]) %}
+				{% endif %}
+
+				<a class="{{ class|join(' ') }}" href="{{ link }}">{{ item.name }}</a>
+			{% endfor %}
+		</div>
+
+		{{ bDropdownMenu('<i class="i-icon i-icon_menu"></i>', header_dropdown_menu, {
+			class: 'b-header__dropdown-menu'
+		}) }}
+
+		<div class="b-header__search">
+			<input/>
+		</div>
+
+	</div>
+</div>

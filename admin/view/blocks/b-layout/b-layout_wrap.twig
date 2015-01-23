@@ -1,0 +1,13 @@
+{% extends 'blocks/b-layout/b-layout.twig' %}
+
+{% block body %}
+
+	{% include 'blocks/b-header/b-header.twig' %}
+
+	<div class="wrap wrap_content">
+		{% block content %}{% endblock %}
+	</div>
+
+	{% include 'blocks/b-footer/b-footer.twig' %}
+
+{% endblock %}

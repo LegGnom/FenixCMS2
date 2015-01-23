@@ -1,0 +1,31 @@
+.b-dropdown-menu{
+	position: relative;
+	display: inline-block;
+
+	&:hover{
+		.b-dropdown-menu__list{ display: block; }
+	}
+}
+
+.b-dropdown-menu__list{
+	display: none;
+	position: absolute;
+	top: 100%;
+	margin-top: -5px;
+	background: #fff;
+	box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+}
+
+.b-dropdown-menu__list-item{
+	display: block;
+	padding: 0 10px;
+	font-size: 13px;
+	line-height: 30px;
+	text-decoration: none;
+	white-space: nowrap;
+	color: #333;
+
+	&:hover{
+		background: #ddd;
+	}
+}

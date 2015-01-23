@@ -1,0 +1,18 @@
+{% extends 'blocks/b-layout/b-layout_two-column.twig' %}
+
+{% block column_left %}
+	{% from 'blocks/b-button/b-button.twig' import bButton %}
+
+	{{ bButton('Подключить базу данных') }}
+	{{ bButton('+') }}
+	{{ bButton('Подключить базу данных') }}
+{% endblock %}
+
+
+{% block column_right %}
+
+
+	<script type="text/html" class="twig-template" data-path="/blocks/b-connect-db/b-connect-db.twig">
+		{{ source('/blocks/b-connect-db/b-connect-db.twig') }}
+	</script>
+{% endblock %}

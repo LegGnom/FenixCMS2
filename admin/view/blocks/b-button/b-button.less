@@ -1,0 +1,30 @@
+.b-button{
+	display: inline-block;
+	padding: 5px 10px;
+	margin: 0 10px 10px 0;
+	text-shadow: 1px 1px 0 #fff;
+	line-height: 16px;
+	font-size: 11px;
+	cursor: pointer;
+	color: #333;
+	border: 1px solid #BEBEBE;
+
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #ebebeb 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ebebeb)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#ebebeb 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#ebebeb 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#ebebeb 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#ebebeb 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ebebeb',GradientType=0 ); /* IE6-9 */
+
+	box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+
+	&:focus{
+		outline: none;
+	}
+
+	&:active{
+		background: #eee;
+	}
+}

@@ -1,0 +1,66 @@
+@import "../i-app/i-app_mixin";
+
+.b-header{
+	.clear;
+	line-height: 30px;
+	border-bottom: 1px solid #ccc;
+}
+
+.b-header__logo{
+	float: left;
+	width: 20%;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333333;
+}
+
+.b-header__menu{
+	margin-left: calc(~'20% + 15px');
+}
+
+.b-header__menu-item{
+	float: left;
+	padding: 0 10px;
+	font-size: 12px;
+	text-decoration: none;
+	color: #777;
+
+	&.b-header__menu-item_active{
+		color: #333;
+		background: #eee;
+	}
+
+	&:first-child{
+		margin-left: -10px;
+	}
+
+	&:hover{
+		text-shadow: 1px 1px 0 #ddd;
+		color: #333;
+		background: #ccc;
+	}
+}
+
+.b-header__dropdown-menu{
+	float: left;
+}
+
+.b-header__search{
+	margin-left: 20px;
+	float: left;
+
+	input{
+		padding: 0 10px;
+		height: 20px;
+		font-size: 11px;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		border-radius: 20px;
+
+		&:focus{
+			border-color: #0088cc;
+			outline: none;
+		}
+	}
+}

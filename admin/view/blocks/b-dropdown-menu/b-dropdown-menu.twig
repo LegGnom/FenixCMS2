@@ -1,0 +1,32 @@
+{% macro bDropdownMenu(button, list, options) %}
+	{% set class = ['b-dropdown-menu'] %}
+
+	{% if options.class %}
+		{% set class = class|merge([options.class]) %}
+	{% endif %}
+
+
+	<div class="{{ class|join(' ') }}">
+		<div class="b-dropdown-menu__button">
+			{{ button|raw }}
+		</div>
+		<div class="b-dropdown-menu__list">
+			{% if list is iterable %}
+				{{ _self.bDropdownMenu_list_(list) }}
+			{% else %}
+				{{ list|raw }}
+			{% endif %}
+		</div>
+	</div>
+{% endmacro %}
+
+
+{% macro bDropdownMenu_list_(list) %}
+	{% for item in list %}
+		{% if item.link %}
+			<a class="b-dropdown-menu__list-item" href="{{ item.link }}">{{ item.name }}</a>
+		{% else %}
+			<div class="b-dropdown-menu__list-item">{{ item.name }}</div>
+		{% endif %}
+	{% endfor %}
+{% endmacro %}
