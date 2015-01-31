@@ -1,5 +1,27 @@
-{% macro bButton(title) %}
-	<button class="b-button">
+{#
+	title
+
+	options.class
+#}
+{% macro bButton(title, options) %}
+	{% from 'blocks/i-attr/i-attr.twig' import iAttr %}
+
+	{% set class = ['b-button'] %}
+	{% set type = 'button' %}
+
+	{% if options.class %}
+		{% set class = class|merge([options.class]) %}
+	{% endif %}
+
+	{% if options.type %}
+		{% set type = options.type %}
+	{% endif %}
+
+
+	<button {{ iAttr({
+		class: class|join(' '),
+		type: type
+	}) }}>
 		{{ title|raw }}
 	</button>
 {% endmacro %}

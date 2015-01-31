@@ -1,0 +1,44 @@
+.b-connect-db{
+	position: fixed;
+	z-index: 2;
+	top: -100%;
+	left: 50%;
+	padding-top: 25px;
+	margin-left: -200px;
+	overflow: auto;
+	width: 400px;
+	max-height: 100%;
+	box-sizing: border-box;
+	background: #fff;
+
+	box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+}
+
+.b-connect-db__close{
+	position: absolute;
+	top: 4px;
+	right: 2px;
+	font-size: 18px;
+	cursor: pointer;
+	opacity: 0.3;
+
+	&:hover{
+		opacity: 1;
+	}
+}
+
+.b-connect-db__toggle-button{
+	display: inline-block;
+	margin-bottom: 10px;
+	cursor: pointer;
+	color: #3E8CD9;
+	border-bottom: 1px dashed;
+
+	&:hover{
+		border-bottom-color: transparent;
+	}
+}
+
+.b-connect-db__toggle{
+	display: none;
+}

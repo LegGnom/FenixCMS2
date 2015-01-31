@@ -1,0 +1,52 @@
+{#
+	options.title
+	options.type
+	options.name
+	options.value
+	options.select
+	options.desc
+	options.class
+
+	config.width
+	config.type
+#}
+{% macro bSelect(options, config) %}
+	{% from 'blocks/i-attr/i-attr.twig' import iAttr %}
+	{% from '/blocks/b-button/b-button.twig' import bButton %}
+
+	{% set widget = 'b-select' %}
+	{% set class = [widget] %}
+	{% set title = options.value|first %}
+	{% set list = [] %}
+
+	<div {{ iAttr({
+		class: class|join(' ')
+	}) }}>
+
+		<select name="{{ options.name }}" class="{{ widget ~ '__select' }}">
+			{% for key in options.value|keys %}
+				<option {{ iAttr({
+					value: key,
+					selected: options.select == key ? 'selected' : ''
+				}) }}>{{ options.value[key] }}</option>
+
+				{% if options.select == key %}
+					{% set title = options.value[key] %}
+				{% endif %}
+			{% endfor %}
+		</select>
+
+
+		{% set button %}
+			<div class="b-select__button-wrap">
+				<div class="b-select__name">{{ title }}</div>
+				<div class="b-select__angle">
+					<i class="i-icon i-icon_down-dir"></i>
+				</div>
+			</div>
+		{% endset %}
+
+		{{ bButton(button, { class: 'b-select__button' }) }}
+		<div class="b-select__list"></div>
+	</div>
+{% endmacro %}

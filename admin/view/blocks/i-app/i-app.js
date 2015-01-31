@@ -191,7 +191,7 @@ var App = (function () {
 			id: id,
 			data: template,
 			allowInlineIncludes: true,
-			strict_variables: true
+			strict_variables: false
 		});
 
 		templates[id] = template;

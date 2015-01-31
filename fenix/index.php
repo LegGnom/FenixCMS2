@@ -14,6 +14,7 @@ require_once dirname(__FILE__) . '/input/input.php';
 require_once dirname(__FILE__) . '/route/route.php';
 require_once dirname(__FILE__) . '/redirect/redirect.php';
 require_once dirname(__FILE__) . '/request/request.php';
+require_once dirname(__FILE__) . '/response/response.php';
 require_once dirname(__FILE__) . '/url/url.php';
 
 

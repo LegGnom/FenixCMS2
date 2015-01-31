@@ -30,7 +30,8 @@ class BaseAdminController extends Controller {
 					'name' => 'Публичные страници',
 					'link' => 'publick_page'
 				)
-			)
+			),
+			'db_drivers' =>  DB::$drivers,
 		);
 	}
 

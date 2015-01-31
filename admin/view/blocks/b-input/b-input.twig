@@ -1,0 +1,45 @@
+{#
+	options.title
+	options.type
+	options.name
+	options.value
+	options.desc
+	options.class
+
+	config.width
+	config.type
+#}
+{% macro bInput(options, config) %}
+	{% set widget_name = 'b-input' %}
+	{% set class = [widget_name ~ '__tag'] %}
+	{% set widget_class = [widget_name] %}
+
+	{% if options.class %}
+		{% set class = class|merge([options.class]) %}
+	{% endif %}
+
+
+	{% if config.width %}
+		{% set widget_class = widget_class|merge([ widget_name ~ '_width-' ~ config.width ]) %}
+	{% endif %}
+
+	{% if config.type %}
+		{% set widget_class = widget_class|merge([ widget_name ~ '_type-' ~ config.type ]) %}
+	{% endif %}
+
+	<div class="{{ widget_class|join(' ') }}">
+		{% if options.title %}
+			<label class="{{ widget_name ~ '__title' }}">
+				{{ options.title }}
+			</label>
+		{% endif %}
+
+		<input type="{{ options.type }}" name="{{ options.name }}" value="{{ options.value }}" class="{{ class|join(' ') }}" />
+
+		{% if options.desc %}
+			<div class="{{ widget_name ~ '__desc' }}">
+				{{ options.desc }}
+			</div>
+		{% endif %}
+	</div>
+{% endmacro %}

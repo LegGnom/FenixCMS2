@@ -1,0 +1,12 @@
+{#
+	Формирование атрибутов для тега
+#}
+{% macro iAttr(options) %}
+{% spaceless %}
+	{% for key in options|keys %}
+		{% if options[key] %}
+			{{ key }}="{{ options[key] }}"
+		{% endif %}
+	{% endfor %}
+{% endspaceless %}
+{% endmacro %}

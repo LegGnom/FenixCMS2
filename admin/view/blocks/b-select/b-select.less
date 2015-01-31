@@ -1,0 +1,62 @@
+.b-select{
+	position: relative;
+	display: inline-block;
+
+	&.b-select_block{
+		display: block;
+	}
+}
+
+.b-select__select{
+	display: none;
+}
+
+.b-select__button-wrap{
+	position: relative;
+}
+
+.b-select__name{
+	padding-right: 20px;
+}
+
+.b-select__angle{
+	position: absolute;
+	top: -5px;
+	right: -10px;
+	bottom: -5px;
+	width: 20px;
+	border-left: 1px solid #ccc;
+
+	i{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		font-size: 12px;
+		margin-left: -0.7em;
+		margin-top: -0.6em;
+	}
+}
+
+.b-select__list{
+	display: none;
+	position: absolute;
+	z-index: 999999999;
+	left: 0;
+	top: 0;
+	border: 1px solid #ccc;
+	background: #fff;
+	box-shadow: 0 0 5px 0 rgba(0,0,0,0.2);
+}
+
+.b-select__list-item{
+	padding: 5px 10px;
+	line-height: 16px;
+	font-size: 11px;
+	cursor: pointer;
+	color: #333;
+
+	&:hover{
+		text-shadow: 1px 1px 0 #C8E4F7;
+		background: #9ad4f7;
+	}
+}

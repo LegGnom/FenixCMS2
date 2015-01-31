@@ -10,7 +10,8 @@ class StructureAdminController extends BaseAdminController{
 			)
 		));
 
-		$this->render('layouts/structure.twig');
+
+		$this->render('blocks/l-structure/l-structure.twig');
 	}
 
 }

@@ -24,7 +24,7 @@ class DB {
 	 * Список доступных драйверов
 	 * @var array
 	 */
-	private static $drivers = array(
+	public static $drivers = array(
 		'pdo' => 'PDO',
 		'mysql' => 'MySQL',
 		'mysqli' => 'MySQLi',

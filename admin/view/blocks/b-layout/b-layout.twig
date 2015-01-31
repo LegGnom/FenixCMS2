@@ -6,15 +6,33 @@
 		<link rel="stylesheet" href="/admin/view/blocks/style.css"/>
 	</head>
 	<body>
+		{# Import #}
+		{% from 'blocks/b-twig-template/b-twig-template.twig' import bTwigTemplate %}
+
+		{# Body #}
 		{% block body %}{% endblock %}
 
 
-		<!-- App -->
+		{# App #}
 		<script src="/admin/view/blocks/i-app/i-app_jquery.js"></script>
 		<script src="/admin/view/blocks/i-app/i-app.js"></script>
 		<script src="/admin/view/blocks/i-app/i-app_twig.js"></script>
 		<script src="/admin/view/blocks/i-app/i-app_twig-config.js"></script>
 
+		{# Twig templates #}
+		{{ template_loader('/blocks/b-connect-db/b-connect-db.twig') }}
+		<script>
+			App.context = {
+				db_drivers: {{ db_drivers|json_encode|raw }}
+			};
+		</script>
 
+		{# Blocks #}
+		<script src="/admin/view/blocks/b-select/b-select.js"></script>
+		<script src="/admin/view/blocks/b-connect-db/b-connect-db.js"></script>
+
+
+		{# Layouts #}
+		<script src="/admin/view/blocks/l-structure/l-structure.js"></script>
 	</body>
 </html>

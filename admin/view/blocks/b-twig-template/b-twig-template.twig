@@ -1,0 +1,5 @@
+{% macro bTwigTemplate(template) %}
+	<script type="text/html" class="twig-template" data-path="{{ template }}">
+		{{ source(template) }}
+	</script>
+{% endmacro %}

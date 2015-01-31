@@ -14,14 +14,34 @@ class DB_Mongo extends DB_Cover implements DB_Interface {
 
 		), $options);
 
+		try {
+			mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
 
-		$this->instance = new MongoClient();
-		$this->db = $this->instance->{$options['name']};
+
+			$query = str_replace(array(
+				'{user}',
+				'{pass}',
+				'{host}',
+				'{port}'
+			), array(
+				$options['user'],
+				$options['pass'],
+				$options['host'],
+				$options['port']
+			), 'mongodb://{user}:{pass}@{host}:{port}');
+
+			$this->instance = new MongoClient($query);
+			$this->db = $this->instance->{$options['name']};
+
+		} catch (Exception $exc) {
+			$this->db = false;
+			return false;
+		}
 	}
 
 	public function is_connect()
 	{
-		return !!count($this->db->getHosts());
+		return !!$this->db;
 	}
 
 	public function close()

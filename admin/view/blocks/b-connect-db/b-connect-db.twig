@@ -1,3 +1,61 @@
+{% from '/blocks/b-button/b-button.twig' import bButton %}
+{% from 'blocks/b-select/b-select.twig' import bSelect %}
+{% from '/blocks/b-input/b-input.twig' import bInput %}
+
 <div class="b-connect-db">
+	<i class="i-icon i-icon_cancel b-connect-db__close"></i>
+
+		<div class="wrap wrap_content">
+			<form class="b-connect-db__form">
+
+				{{ bSelect({
+					name: 'driver',
+					value: db_drivers
+				}) }}
+
+				{{ bInput({
+					name: 'user',
+					value: '',
+					title: 'Имя пользователя',
+				}, { type: 'block' }) }}
+
+				{{ bInput({
+					name: 'pass',
+					value: '',
+					title: 'Пароль'
+				}, { type: 'block' }) }}
+
+				<span class="b-connect-db__toggle-button">Дополнительные настройки</span>
+				<div class="b-connect-db__toggle">
+					{{ bInput({
+						name: 'host',
+						value: '',
+						title: 'Хост'
+					}, { width: 65 }) }}
+					{{ bInput({
+						name: 'port',
+						value: '',
+						title: 'Порт'
+					}, { width: 20 }) }}
+				</div>
+
+				<hr/>
+
+				{{ bInput({
+					name: 'name',
+					value: '',
+					title: 'Имя базы данных'
+				}, { type: 'block' }) }}
+
+				{{ bInput({
+					name: 'instance_name',
+					value: '',
+					title: 'Создать модель с именем'
+				}, { type: 'block' }) }}
+
+				{{ bButton('Сохранить', {type: 'submit'}) }}
+				{{ bButton('Сохранить и добавить еще одну') }}
+			</form>
+		</div>
 
 </div>

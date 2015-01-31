@@ -7,10 +7,15 @@ class DB_PDO extends DB_MySQL implements DB_Interface {
 	function __construct($options)
 	{
 		$this->options = $options;
-		$this->db = new PDO('mysql:host='.$options['host'].';dbname='.$options['name'], $options['user'], $options['pass'], array(
-			PDO::ATTR_PERSISTENT => true,
-			PDO::MYSQL_ATTR_INIT_COMMAND=>'SET NAMES UTF8'
-		));
+		try {
+			$this->db = new PDO('mysql:host=' . $options['host'] . ';dbname=' . $options['name'], $options['user'], $options['pass'], array(
+				PDO::ATTR_PERSISTENT => true,
+				PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'
+			));
+		} catch (Exception $exc) {
+			$this->db = false;
+			return false;
+		}
 	}
 
 	public function close()

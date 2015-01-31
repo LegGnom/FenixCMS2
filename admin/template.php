@@ -9,6 +9,11 @@ $twig = new Twig_Environment($loader, array(
 	//'cache' => '',
 ));
 
+
+require_once dirname(__FILE__) . '/twig_extension/Twig_Extension_TemplateLoader.php';
+$twig->addExtension(new Twig_Extension_TemplateLoader);
+
+
 View::call_string(function($template, $data = array()) use($twig_render_string) {
 	echo $twig_render_string->render($template, $data);
 });

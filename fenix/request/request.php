@@ -33,7 +33,8 @@ class Request {
 	 */
 	public static function path()
 	{
-		return $_SERVER['REQUEST_URI'];
+		$url = parse_url($_SERVER['REQUEST_URI']);
+		return $url['path'];
 	}
 
 
