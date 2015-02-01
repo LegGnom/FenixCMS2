@@ -1554,6 +1554,53 @@ body {
   text-shadow: 1px 1px 0 #C8E4F7;
   background: #9ad4f7;
 }
+.b-alert {
+  display: none;
+  position: fixed;
+  max-width: 300px;
+  top: 40px;
+  right: 10px;
+  padding: 10px 15px 10px 55px;
+  font-size: 13px;
+  line-height: 16px;
+  color: #333;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+}
+.b-alert.b-alert_good {
+  color: #000;
+  border-color: #74BB3F;
+  background: #A0E372;
+}
+.b-alert.b-alert_good .b-alert__icon {
+  border-color: #74BB3F;
+  background: #74BB3F;
+}
+.b-alert__message {
+  overflow: auto;
+  margin: -10px -15px -10px 0;
+  padding: 10px 15px 10px 0;
+  max-height: 64px;
+}
+.b-alert__icon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  width: 40px;
+  border-right: 1px solid #ccc;
+  background: #f7f7f7;
+}
+.b-alert__icon i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -0.5em;
+  margin-left: -0.7em;
+  font-size: 20px;
+}
 .b-connect-db {
   position: fixed;
   z-index: 2;

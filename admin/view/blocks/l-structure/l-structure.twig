@@ -24,6 +24,11 @@
 		]
 	}) }}
 
+	{% include 'blocks/b-alert/b-alert.twig' with {
+		message: 'Weve tried to make the client code as simple as possible. While the following may not be what you use, it shows the general idea. This code will be in view_to_launch.html.',
+		type: 'good'
+	} %}
+
 	{#{% from 'blocks/b-input/b-input.twig' import bInput %}#}
 	{#{{ bInput({ title: '12345', desc: 'desc' }, { type: 'block', width: 100 }) }}#}
 	{#{{ bInput({ title:  '12345', desc: 'desc'  }, { type: 'block', width: 95 }) }}#}

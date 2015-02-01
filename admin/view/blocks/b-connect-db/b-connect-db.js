@@ -1,3 +1,5 @@
+App.require('App.blocks.bAlertPush');
+
 App.provide('App.blocks.bConnectDB');
 
 
@@ -6,6 +8,7 @@ App.blocks.bConnectDB = function () {
 	this.widget = null;
 	this.id = App.unique();
 	this.is_visible = false;
+	this.alert = new App.blocks.bAlertPush();
 };
 
 
@@ -74,11 +77,20 @@ App.blocks.bConnectDB.prototype.mouse_close_ = function (event) {
 
 
 App.blocks.bConnectDB.prototype.submit_ = function (event) {
-	var form = $(event.currentTarget),
+	var self = this,
+		form = $(event.currentTarget),
 		data = form.serialize();
 
-	$.get('/admin/action/connect-db/', data, function (res) {
-		console.log(res)
+	$.get('/admin/action/connect-db/', data, function (result) {
+		var status = '';
+		if(result.error){
+			status = 'error';
+		}else{
+			self.hide();
+			status = 'good';
+		}
+
+		self.alert.show(result.push_message, status);
 	});
 
 	event.preventDefault();

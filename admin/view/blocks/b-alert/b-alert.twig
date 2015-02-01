@@ -1,0 +1,15 @@
+{% set widget_class = 'b-alert' %}
+{% set class = [widget_class] %}
+
+{% if type %}
+	{% set class = class|merge([widget_class ~ '_' ~ type]) %}
+{% endif %}
+
+<div class="{{ class|join(' ') }}">
+	<div class="b-alert__icon">
+		<i class="i-icon  i-icon_attention-alt"></i>
+	</div>
+	<div class="b-alert__message">
+		{{ message }}
+	</div>
+</div>

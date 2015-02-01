@@ -10,29 +10,31 @@ class DB_Mongo extends DB_Cover implements DB_Interface {
 
 	function __construct($options)
 	{
-		$this->options = $options = array_merge(array(
+		$this->options = $options = array_merge(array(), $options);
 
-		), $options);
+		$query = array('mongodb://');
+		if($options['user'] && $options['pass']){
+			$query[] = $options['user'];
+			$query[] = ':' .$options['pass'];
+		}
+
+		if($options['host']){
+			if(count($query) > 1){
+				$query[] = '@';
+			}
+
+			$query[] = $options['host'];
+		}
+
+		if($options['port']){
+			$query[] = ':'.$options['port'];
+		}
+
+		$query = count($query) > 1 ? implode('',$query) : false;
 
 		try {
-			mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
-
-
-			$query = str_replace(array(
-				'{user}',
-				'{pass}',
-				'{host}',
-				'{port}'
-			), array(
-				$options['user'],
-				$options['pass'],
-				$options['host'],
-				$options['port']
-			), 'mongodb://{user}:{pass}@{host}:{port}');
-
 			$this->instance = new MongoClient($query);
-			$this->db = $this->instance->{$options['name']};
-
+			$this->db = $this->instance->selectDB($options['name']);
 		} catch (Exception $exc) {
 			$this->db = false;
 			return false;

@@ -21,6 +21,7 @@
 
 		{# Twig templates #}
 		{{ template_loader('/blocks/b-connect-db/b-connect-db.twig') }}
+		{{ template_loader('/blocks/b-alert/b-alert.twig') }}
 		<script>
 			App.context = {
 				db_drivers: {{ db_drivers|json_encode|raw }}
@@ -29,6 +30,8 @@
 
 		{# Blocks #}
 		<script src="/admin/view/blocks/b-select/b-select.js"></script>
+		<script src="/admin/view/blocks/b-alert/b-alert.js"></script>
+		<script src="/admin/view/blocks/b-alert/b-alert_push.js"></script>
 		<script src="/admin/view/blocks/b-connect-db/b-connect-db.js"></script>
 
 
