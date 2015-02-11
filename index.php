@@ -9,7 +9,9 @@ require_once dirname(__FILE__) . '/fenix/index.php';
 require_once dirname(__FILE__) . '/admin/index.php';
 
 
+
 App::set_controller_path(dirname(__FILE__) . '/controller/');
 View::set_path(dirname(__FILE__) . '/view/');
 
+require_once dirname(__FILE__) . '/route.php';
 
