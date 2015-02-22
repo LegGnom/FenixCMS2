@@ -82,15 +82,22 @@ App.blocks.bConnectDB.prototype.submit_ = function (event) {
 		data = form.serialize();
 
 	$.get('/admin/action/connect-db/', data, function (result) {
-		var status = '';
-		if(result.error){
-			status = 'error';
-		}else{
-			self.hide();
-			status = 'good';
+		var status = 'error',
+			message = '';
+
+		try{
+			message = result.push_message;
+
+			if( !result.error ){
+				self.hide();
+				status = 'good';
+			}
+		} catch (e) {
+			message = e;
 		}
 
-		self.alert.show(result.push_message, status);
+
+		self.alert.show(message, status);
 	});
 
 	event.preventDefault();

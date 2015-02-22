@@ -1,0 +1,18 @@
+{% for item in list %}
+    {% set widget_class = 'l-structure__menu-objects-item' %}
+    {% set class = [widget_class] %}
+
+    {% if item.instance_name|lower == get_url(2) %}
+        {% set class = class|merge([widget_class ~ '_active']) %}
+    {% endif %}
+
+
+    <div class="{{ class|join(' ') }}">
+        <a href="{{ structure_url }}/{{ item.instance_name|lower }}/" class="l-structure__menu-objects-item-link">
+            <h5 class="l-structure__menu-objects-name">{{ item.instance_name }}</h5>
+            <div class="l-structure__menu-objects-info">
+                {{ item.driver }}[{{ item.host|default('localhost') }}:{{ item.user }}]
+            </div>
+        </a>
+    </div>
+{% endfor %}

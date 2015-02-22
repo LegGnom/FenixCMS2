@@ -1,0 +1,31 @@
+{% from 'blocks/b-input/b-input.twig' import bInput %}
+{% from 'blocks/b-button/b-button.twig' import bButton %}
+{% from 'blocks/b-select/b-select.twig' import bSelect %}
+
+<div class="b-create-object">
+    {{ bInput({
+        title: 'Название объекта',
+        class: 'b-create-object__table-input-name'
+    }, { width: 30 }) }}
+
+    {{ bInput({
+        title: 'Псевдоним объекта',
+        class: 'b-create-object__table-input-alias'
+    }, { width: 30 }) }}
+
+    {{ bSelect({
+        value: list
+    }, { class: 'b-create-object__table-select' }) }}
+
+    <div class="b-create-object__additional-options">
+        {{ bButton('Дополнительные настройки', { class: 'b-create-object__additional-options-button' }) }}
+    </div>
+
+    <div class="b-create-object__additional-options-box">
+
+        {{ bInput({
+            title: 'Описание объекта'
+        }, { width: 100 }) }}
+
+    </div>
+</div>

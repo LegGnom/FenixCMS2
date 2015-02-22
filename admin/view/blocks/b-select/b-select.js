@@ -1,8 +1,14 @@
+App.require('App.blocks.iAppWidget');
+App.require('App.blocks.iEvent');
+
 App.provide('App.blocks.bSelect');
 
 
 App.blocks.bSelect = function (node) {
 	var widget = $(node);
+
+	App.blocks.bSelect.parent.constructor.call(this);
+	App.blocks.iAppWidget.getInstance().set(this, node, 'App.blocks.bSelect');
 
 	this.dom_ = {
 		widget: widget,
@@ -16,6 +22,12 @@ App.blocks.bSelect = function (node) {
 
 	this.init_();
 	this.bind_();
+};
+App.extend(App.blocks.bSelect, App.blocks.iEvent);
+
+
+App.blocks.bSelect.EVENTS = {
+	CHANGE: 'App.blocks.bSelect.CHANGE'
 };
 
 
@@ -50,6 +62,7 @@ App.blocks.bSelect.prototype.check = function (index) {
 	this.dom_.options.removeAttr('selected');
 	this.dom_.options.eq(index).attr('selected', 'selected');
 	this.dom_.name.html(this.dom_.items.eq(index).html());
+	this.dispatchEvent(App.blocks.bSelect.EVENTS.CHANGE, index);
 	this.hide();
 };
 
@@ -70,8 +83,14 @@ App.blocks.bSelect.prototype.dom_click_ = function (event) {
 	}
 };
 
-$(function () {
-	$('.b-select').each(function () {
+
+App.blocks.bSelect.init = function (node) {
+	$('.b-select', node).each(function () {
 		new App.blocks.bSelect(this);
 	});
+};
+
+
+$(function () {
+	App.blocks.bSelect.init(document.body);
 });

@@ -1257,7 +1257,7 @@ body {
 }
 .wrap.wrap_content {
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 32px;
 }
 .column:after {
   clear: both;
@@ -1331,7 +1331,7 @@ body {
 }
 .b-footer {
   position: fixed;
-  z-index: 1;
+  z-index: 102;
   bottom: 0;
   left: 0;
   right: 0;
@@ -1557,6 +1557,7 @@ body {
 .b-alert {
   display: none;
   position: fixed;
+  z-index: 99;
   max-width: 300px;
   top: 40px;
   right: 10px;
@@ -1603,7 +1604,7 @@ body {
 }
 .b-connect-db {
   position: fixed;
-  z-index: 2;
+  z-index: 103;
   top: -100%;
   left: 50%;
   padding-top: 25px;
@@ -1638,4 +1639,104 @@ body {
 }
 .b-connect-db__toggle {
   display: none;
+}
+.b-table {
+  overflow: auto;
+  width: 100%;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+.b-popup {
+  position: fixed;
+  z-index: 103;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.b-popup__background {
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+}
+.b-popup__wrap {
+  position: relative;
+  overflow: auto;
+  z-index: 2;
+  height: 100%;
+}
+.b-popup__content {
+  display: none;
+  margin: 0 auto;
+  padding: 10px 15px;
+  border: 1px solid #000;
+  background: #fff;
+}
+.b-popup__content.b-popup__content_small {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 400px;
+}
+.b-popup__content.b-popup__content_normal {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 700px;
+}
+.b-popup__head {
+  margin: -10px -15px 10px -15px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-bottom: 1px solid #ccc;
+  background: #f7f7f7;
+}
+.b-create-object__additional-options {
+  text-align: center;
+}
+.b-create-object__additional-options-box {
+  display: none;
+}
+.l-structure__menu-objects-item {
+  padding: 10px 0;
+}
+.l-structure__menu-objects-item.l-structure__menu-objects-item_active {
+  margin-left: -15px;
+  padding-left: 10px;
+  border-left: 5px solid #15BDC3;
+}
+.l-structure__menu-objects-item-link {
+  text-decoration: none;
+}
+.l-structure__menu-objects-name {
+  font-size: 16px;
+  color: #333;
+}
+.l-structure__menu-objects-info {
+  font-size: 11px;
+  color: #555;
+}
+.l-structure__object:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+.l-structure__object-list {
+  float: left;
+  width: 20%;
+}
+.l-structure__object-link {
+  display: block;
+  line-height: 25px;
+  text-decoration: none;
+  color: #333;
+}
+.l-structure__object-link.l-structure__object-link_active {
+  color: #15BDC3;
+}
+.l-structure__object-view {
+  margin-left: 20%;
 }

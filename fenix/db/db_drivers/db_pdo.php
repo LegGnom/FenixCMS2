@@ -31,7 +31,7 @@ class DB_PDO extends DB_MySQL implements DB_Interface {
 	public function query( $query )
 	{
 		if($this->is_connect()){
-			return $this->db->query($query);
+			return $this->db->query($query, PDO::FETCH_ASSOC);
 		}
 	}
 

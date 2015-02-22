@@ -2,7 +2,11 @@
 
 Route::group('get', array(
 	'/admin/' => 'HomeAdminController',
-	'/admin/structure/' => 'StructureAdminController'
+	'/admin/structure/' => 'StructureAdminController',
+	'/admin/structure/{instance}/' => 'StructureInstanceAdminController',
+	'/admin/structure/{instance}/{object}/' => 'StructureObjectAdminController',
+
+	'/admin/settings/' => 'SettingsAdminController',
 ));
 
 

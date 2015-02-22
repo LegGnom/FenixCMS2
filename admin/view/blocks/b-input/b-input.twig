@@ -15,7 +15,7 @@
 	{% set widget_class = [widget_name] %}
 
 	{% if options.class %}
-		{% set class = class|merge([options.class]) %}
+		{% set widget_class = widget_class|merge([options.class]) %}
 	{% endif %}
 
 

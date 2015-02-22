@@ -9,6 +9,7 @@
 
 	config.width
 	config.type
+	config.class
 #}
 {% macro bSelect(options, config) %}
 	{% from 'blocks/i-attr/i-attr.twig' import iAttr %}
@@ -18,6 +19,10 @@
 	{% set class = [widget] %}
 	{% set title = options.value|first %}
 	{% set list = [] %}
+
+	{% if config.class %}
+		{% set class = class|merge([config.class]) %}
+	{% endif %}
 
 	<div {{ iAttr({
 		class: class|join(' ')

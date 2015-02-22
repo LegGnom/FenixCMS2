@@ -1,0 +1,39 @@
+{% from 'blocks/b-button/b-button.twig' import bButton %}
+
+<div class="l-structure__object">
+
+    <div class="l-structure__object-list">
+        {{ bButton('Добавить объект', { class: 'l-structure__create-object' }, {'data-init': object.collections}) }}
+
+        {% for object in objects_list %}
+        {% endfor %}
+
+        {% if not objects_list|length %}
+            <p>На данный момент нет доступных объектов</p><br/>
+        {% endif %}
+
+
+        {#{{ bButton('Добавить коллекцию') }}#}
+
+        {#{% for collection in object.collections %}#}
+            {#{% set widget_class = 'l-structure__object-link' %}#}
+            {#{% set class = [widget_class] %}#}
+
+            {#{% if get_url(3) == collection %}#}
+                {#{% set class = class|merge([widget_class ~ '_active']) %}#}
+            {#{% endif %}#}
+
+            {#<a href="{{ object_url }}/{{ collection }}/" class="{{ class|join(' ') }}">#}
+                {#{{ collection }}#}
+            {#</a>#}
+        {#{% endfor %}#}
+    </div>
+
+    <div class="l-structure__object-view">
+        {#{% if data %}#}
+            {#{% from 'blocks/b-table/b-table.twig' import bTable %}#}
+            {#{{ bTable(data) }}#}
+        {#{% endif %}#}
+    </div>
+
+</div>

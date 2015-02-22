@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<title>Fenix CMS {{ title ? '| ' ~ title : '' }}</title>
 		<link rel="stylesheet" href="/admin/view/blocks/style.css"/>
+		<link rel="stylesheet" href="/admin/view/blocks/b-table/b-table__lib/handsontable.full.min.css">
 	</head>
 	<body>
 		{# Import #}
@@ -13,27 +14,20 @@
 		{% block body %}{% endblock %}
 
 
-		{# App #}
-		<script src="/admin/view/blocks/i-app/i-app_jquery.js"></script>
-		<script src="/admin/view/blocks/i-app/i-app.js"></script>
-		<script src="/admin/view/blocks/i-app/i-app_twig.js"></script>
-		<script src="/admin/view/blocks/i-app/i-app_twig-config.js"></script>
+		{{ load_scripts('app') }}
 
 		{# Twig templates #}
 		{{ template_loader('/blocks/b-connect-db/b-connect-db.twig') }}
 		{{ template_loader('/blocks/b-alert/b-alert.twig') }}
+		{{ template_loader('/blocks/b-popup/b-popup.twig') }}
+		{{ template_loader('/blocks/b-create-object/b-create-object.twig') }}
 		<script>
 			App.context = {
 				db_drivers: {{ db_drivers|json_encode|raw }}
 			};
 		</script>
 
-		{# Blocks #}
-		<script src="/admin/view/blocks/b-select/b-select.js"></script>
-		<script src="/admin/view/blocks/b-alert/b-alert.js"></script>
-		<script src="/admin/view/blocks/b-alert/b-alert_push.js"></script>
-		<script src="/admin/view/blocks/b-connect-db/b-connect-db.js"></script>
-
+		{{ load_scripts('blocks') }}
 
 		{# Layouts #}
 		<script src="/admin/view/blocks/l-structure/l-structure.js"></script>

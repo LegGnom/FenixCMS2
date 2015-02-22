@@ -231,5 +231,19 @@ var App = (function () {
 	};
 
 
+	_App.prototype.merge = function(){
+		var self = this,
+			result = {};
+		this.each(arguments, function (obj) {
+			if( self.is_object(obj) ){
+				for ( var name in obj ){
+					result[name] = obj[name];
+				}
+			}
+		});
+		return result;
+	};
+
+
 	return new _App;
 }());

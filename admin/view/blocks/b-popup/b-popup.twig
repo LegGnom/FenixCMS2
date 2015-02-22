@@ -1,0 +1,24 @@
+<div class="b-popup">
+    <div class="b-popup__background"></div>
+
+
+    {% set content_class = 'b-popup__content' %}
+    {% set content_class_list = [content_class] %}
+    {% if options %}
+        {% if options.width %}
+            {% set content_class_list = content_class_list|merge([ content_class ~ '_' ~ options.width ]) %}
+        {% endif %}
+    {% endif %}
+
+    <div class="b-popup__wrap">
+        <div class="{{ content_class_list|join(' ') }}">
+            {% if head %}
+                <div class="b-popup__head">
+                    {{ head|raw }}
+                </div>
+            {% endif %}
+
+            {{ body|raw }}
+        </div>
+    </div>
+</div>

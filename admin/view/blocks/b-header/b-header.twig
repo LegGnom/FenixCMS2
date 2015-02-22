@@ -11,7 +11,7 @@
 				{% set class = [item_class] %}
 				{% set link = admin_url ~ item.link ~ '/' %}
 
-				{% if self_url == link %}
+				{% if get_url(1) == item.link %}
 					{% set class = class|merge([ item_class ~ '_active' ]) %}
 				{% endif %}
 

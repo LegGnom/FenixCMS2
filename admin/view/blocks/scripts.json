@@ -1,0 +1,27 @@
+{
+    "app": [
+        "/admin/view/blocks/i-app/i-app_jquery.js",
+        "/admin/view/blocks/i-app/i-app.js",
+        "/admin/view/blocks/i-app/i-app_widget.js",
+        "/admin/view/blocks/i-app/i-app_widget-constructor.js",
+        "/admin/view/blocks/i-app/i-app_twig.js",
+        "/admin/view/blocks/i-app/i-app_twig-config.js"
+    ],
+
+    "blocks": [
+        "/admin/view/blocks/b-table/b-table__lib/handsontable.full.min.js",
+        "/admin/view/blocks/i-event/i-event.js",
+        "/admin/view/blocks/b-input/b-input.js",
+        "/admin/view/blocks/b-table/b-table.js",
+        "/admin/view/blocks/b-select/b-select.js",
+        "/admin/view/blocks/b-popup/b-popup.js",
+        "/admin/view/blocks/b-alert/b-alert.js",
+        "/admin/view/blocks/b-alert/b-alert_push.js",
+        "/admin/view/blocks/b-connect-db/b-connect-db.js",
+        "/admin/view/blocks/b-create-object/b-create-object.js"
+    ],
+
+    "structure": [
+        "/admin/view/blocks/l-structure/l-structure.js"
+    ]
+}

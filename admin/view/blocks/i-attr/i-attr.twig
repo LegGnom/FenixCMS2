@@ -5,7 +5,7 @@
 {% spaceless %}
 	{% for key in options|keys %}
 		{% if options[key] %}
-			{{ key }}="{{ options[key] }}"
+			{{ key }}="{{ options[key] is iterable ? options[key]|json_encode : options[key] }}"
 		{% endif %}
 	{% endfor %}
 {% endspaceless %}

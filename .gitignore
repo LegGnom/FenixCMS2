@@ -1,4 +1,6 @@
 local-error_log
 local-access_log
 
+config.php
+
 .idea/*
